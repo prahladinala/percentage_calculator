@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Add Percentage!</title>
+</head>
+
+<body>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="presentAmount">Present Amount</label>
+                    <input type="number" class="form-control" id="presentAmount" aria-describedby="emailHelp"
+                        placeholder="Present Amount">
+
+                </div>
+                <div class="form-group">
+                    <label for="percentageIn">Percentage</label>
+                    <input type="number" class="form-control" id="percentageIn" placeholder="Percentage">
+                </div>
+
+                <button type="button" class="btn btn-success btn-block" id="calculateBtn">Submit</button>
+                <div class="input-group my-3">
+                    <input type="text" class="form-control" id="inputDataUrl"
+                        placeholder="Enter Values and Submit to get Value" aria-label="Recipient's username"
+                        aria-describedby="basic-addon2" readonly />
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" data-toggle="tooltip" data-placement="bottom"
+                            data-trigger="click" title="Hooray!" id="btnCopy" type="button">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+            //On Button Click
+            $("#calculateBtn").click(function () {
+                //Get The Values From Users
+                var presentAmount = parseInt($('#presentAmount').val());
+                var percentageIn = parseInt($('#percentageIn').val());
+
+                //Calculations 100+10=110=1.1
+                // 100 + given = x /100 
+                //  Percentage Cal
+                var percentageCal = (100 + percentageIn) / 100
+                // alert(percentageCal)
+
+                //  Final Amount
+                var finalAmount = (presentAmount * percentageCal)
+                // alert(finalAmount)
+
+                $("#inputDataUrl").val(finalAmount);
+                inputDataUrl.select()
+                document.execCommand('Copy')
+                $('[data-toggle="tooltip"]').tooltip('show')
+            });
+        });
+        // calculateBtn
+        const btnCopy = document.getElementById('btnCopy')
+        btnCopy.onclick = function () {
+            inputDataUrl.select()
+            document.execCommand('Copy')
+            $('[data-toggle="tooltip"]').tooltip('show')
+        }
+    </script>
+</body>
+
+</html>
